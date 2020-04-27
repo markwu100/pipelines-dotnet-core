@@ -16,8 +16,6 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-steps:
-# ...
 # do this after your tests have run
 - script: dotnet test <test-project> --logger trx
 - task: PublishTestResults@2
