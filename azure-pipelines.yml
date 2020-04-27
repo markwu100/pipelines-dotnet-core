@@ -16,7 +16,6 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-steps:
 # ...
 # do this after your tests have run
 - script: dotnet test <test-project> --logger trx
@@ -26,7 +25,6 @@ steps:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 
-steps:
 # ...
 # do this after your tests have run
 - script: dotnet test <test-project> --logger trx --collect "Code coverage"
@@ -35,7 +33,6 @@ steps:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 
-steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
@@ -49,7 +46,6 @@ steps:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
 
-steps:
 # ...
 # do this near the end of your pipeline in most cases
 - script: dotnet pack /p:PackageVersion=$(version)  # define version variable elsewhere in your pipeline
